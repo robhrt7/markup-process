@@ -416,7 +416,7 @@ a:hover {
   display: inline-block;
   width: 153px;
   height: 20px;
-  background-image: url(/i/logo.png);
+  background-image: url(../i/logo.png);
   background-size: cover;
   text-indent: -9999px;
   vertical-align: top;
@@ -509,23 +509,23 @@ a:hover {
   background-position: 50%;
 }
 .why_visual_i.__1 {
-  background-image: url(/i/demo/demo_1.png);
+  background-image: url(../i/demo/demo_1.png);
   background-size: 34px;
 }
 .why_visual_i.__2 {
-  background-image: url(/i/demo/demo_2.png);
+  background-image: url(../i/demo/demo_2.png);
   background-size: 75px;
 }
 .why_visual_i.__3 {
-  background-image: url(/i/demo/demo_3.png);
+  background-image: url(../i/demo/demo_3.png);
   background-size: 108px 72px;
 }
 .why_visual_i.__4 {
-  background-image: url(/i/demo/demo_4.png);
+  background-image: url(../i/demo/demo_4.png);
   background-size: 57px;
 }
 .why_visual_i.__5 {
-  background-image: url(/i/demo/demo_5.png);
+  background-image: url(../i/demo/demo_5.png);
   background-size: 72px;
 }
 .why_ul {
@@ -566,7 +566,7 @@ a:hover {
 }
 .steps_i.__1 {
   padding-right: 70px;
-  background-image: url(/i/step/step_1.png);
+  background-image: url(../i/step/step_1.png);
   background-size: 138px;
 }
 .steps_i.__2 {
@@ -575,7 +575,7 @@ a:hover {
   margin-top: 25px;
   padding-left: 210px;
   padding-top: 20px;
-  background-image: url(/i/step/step_2.png);
+  background-image: url(../i/step/step_2.png);
   background-size: 164px;
 }
 .steps_i.__2:before {
@@ -586,7 +586,7 @@ a:hover {
   width: 93px;
   height: 108px;
   margin-right: 35px;
-  background-image: url(/i/step/step_dots.png);
+  background-image: url(../i/step/step_dots.png);
   background-size: cover;
 }
 .steps_i h2 {
