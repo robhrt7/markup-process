@@ -1,0 +1,59 @@
+@dates-bg: #e5e1d0;
+
+.dates {
+  background-color: @dates-bg;
+
+  &.pro-main_i:after {
+    border-top-color: @dates-bg;
+    }
+  }
+
+.dates_scheme {
+  margin-top: 50px;
+  }
+
+.dates_scheme_i {
+  display: inline-block;
+  width: 50%;
+  }
+
+.dates_part {
+  padding-bottom: 15px;
+  font-size: @size-sl;
+  }
+
+.dates_part-num {
+  font-size: 50px;
+  }
+
+.dates_diagram {
+  position: relative;
+  padding: 7px 25px 0;
+  border-top: 5px solid #fff;
+
+  font-size: 20px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50px;
+    right: 50px;
+    height: 1px;
+    border-top: 9px #52616E solid;
+    }
+
+  &.__style-2:before {
+    border-top-color: #c6463d;
+    }
+  }
+
+.dates_diagram_i {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+
+  &:first-child {
+    text-align: left;
+    }
+  }

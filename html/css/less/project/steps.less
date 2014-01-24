@@ -1,0 +1,67 @@
+@steps-bg: #2c343b;
+
+.steps {
+  padding-top: 60px;
+  background-color: #2c343b;
+  color: @color-invert;
+
+  &.pro-main_i:after {
+    border-top-color: @steps-bg;
+    }
+  }
+
+.steps_list {
+  width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  }
+
+.steps_i {
+  min-height: 190px;
+  padding-left: 180px;
+  line-height: 1.9;
+  background-repeat: no-repeat;
+
+  &.__1 {
+    padding-right: 70px;
+    background-image: url(/i/step/step_1.png);
+    background-size: 138px;
+    }
+
+  &.__2 {
+    position: relative;
+    margin-left: 185px;
+    margin-top: 25px;
+    padding-left: 210px;
+    padding-top: 20px;
+    background-image: url(/i/step/step_2.png);
+    background-size: 164px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -27px; right: 100%;
+      width: 93px;
+      height: 108px;
+      margin-right: 35px;
+      background-image: url(/i/step/step_dots.png);
+      background-size: cover;
+      }
+    }
+
+  h2 {
+    line-height: normal;
+    }
+
+  p {
+    margin-bottom: .5em;
+    }
+  }
+
+.steps_action {
+  margin-top: 30px;
+
+  .button {
+    color: #c6463d;
+    }
+  }

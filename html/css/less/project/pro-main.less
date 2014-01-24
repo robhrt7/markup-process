@@ -1,0 +1,28 @@
+.pro-main {
+  text-align: center;
+  }
+
+.pro-main_i {
+  position: relative;
+  padding: 35px 0 60px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -13px;
+
+	height: 0;
+	width: 0;
+
+    border: solid transparent;
+	border-top-color: #c6463d;
+	border-width: 15px;
+    }
+
+  &:last-child:after {
+    display: none;
+    }
+  }
