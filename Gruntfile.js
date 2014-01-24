@@ -6,14 +6,14 @@ module.exports = function(grunt) {
         less: {
             main: {
                 files: {
-                    "html/css/main.css": "html/css/less/main.less"
+                    "css/main.css": "css/less/main.less"
                 }
             }
         },
 
         watch: {
             main: {
-                files: 'html/css/less/**/*.less',
+                files: 'css/less/**/*.less',
                 tasks: ['less'],
                 options: {
                     nospawn: true

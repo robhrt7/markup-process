@@ -60,7 +60,7 @@ q:before, q:after {
 }
 
 /*
- * Addresses styling not present in IE7/8/9, S5, Chrome
+ * Addresses styling not present in 8/9, S5, Chrome
  */
 abbr[title] {
     border-bottom: 1px dotted;
@@ -86,12 +86,11 @@ mark {
 }
 
 /*
- * Corrects font family set oddly in IE6, S5, Chrome
+ * Corrects font family set oddly in S5, Chrome
  * en.wikipedia.org/wiki/User:Davidgothberg/Test59
  */
 pre, code, kbd, samp {
     font-family: monospace, monospace;
-    _font-family: 'courier new', monospace;
     font-size: 1em;
 }
 
@@ -101,13 +100,10 @@ table {
 }
 
 /*
- * Corrects inline-block display not defined in IE6/7/8/9 & FF3
- * Known limitation: IE6 will not apply style for 'audio[controls]'
+ * Corrects inline-block display not defined in 8/9 & FF3
  */
 audio[controls], canvas, video {
     display: inline-block;
-    *display: inline;
-    *zoom: 1;
 }
 
 /*
@@ -131,14 +127,6 @@ sub, sup {
 }
 
 /*
- * Improves image quality when scaled in IE7
- *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
- */
-img {
-    -ms-interpolation-mode: bicubic;
-}
-
-/*
  * Corrects overflow displayed oddly in IE9
  */
 svg:not(:root) {
@@ -146,16 +134,9 @@ svg:not(:root) {
 }
 
 /*
- * Addresses margin not present in IE6/7/8/9, S5, O11
+ * Addresses margin not present in 8/9, S5, O11
  */
 figure {
-    margin: 0;
-}
-
-/*
- * Corrects margin displayed oddly in IE6/7
- */
-form {
     margin: 0;
 }
 
@@ -168,33 +149,28 @@ fieldset {
 }
 
 /*
- * 1. Corrects color not being inherited in IE6/7/8/9
- * 2. Corrects alignment displayed oddly in IE6/7
+ * 1. Corrects color not being inherited in IE8/9
  */
 legend {
     border: 0; /* 1 */
-    *margin-left: -7px; /* 2 */
 }
 
 /*
  * 1. Corrects font size not being inherited in all browsers
- * 2. Addresses margins set differently in IE6/7, F3/4, S5, Chrome
+ * 2. Addresses margins set differently in F3/4, S5, Chrome
  * 3. Improves appearance and consistency in all browsers
  */
 button, input, select, textarea {
     font-size: 100%; /* 1 */
     margin: 0; /* 2 */
     vertical-align: baseline; /* 3 */
-    *vertical-align: middle; /* 3 */
 }
 
 /*
  * 1. Addresses FF3/4 setting line-height using !important in the UA stylesheet
- * 2. Corrects inner spacing displayed oddly in IE6/7
  */
 button, input {
     line-height: normal; /* 1 */
-    *overflow: visible;  /* 2 */
 }
 
 /*
@@ -235,7 +211,7 @@ input::-moz-focus-inner {
 }
 
 /*
- * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 1. Removes default vertical scrollbar in 8/9
  * 2. Improves readability and aligment in all browsers
  */
 textarea {
