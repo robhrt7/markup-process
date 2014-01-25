@@ -1,11 +1,9 @@
-Full web page markup process recorder in video
+Full web page HTML markup process recorder in video
 ==============
 
-Source files of video recorded (~3 hours) full web page markup process. [MCSS](http://operatino.github.io/MCSS/en/), Grunt, Less, IE8+.
+Web page source files for [Full video recorded HTML markup process](http://youtu.be/YzivmuO8Vzs). [MCSS](http://operatino.github.io/MCSS/en/), [Grunt](http://gruntjs.com/), [Less](http://lesscss.org), IE8+.
 
 To inspect sources checkout this project, or visit [demo page](http://operatino.github.io/markup-process).
-
-Link to recorded video with comments coming soon, stay tuned with [@operatino_en](http://twitter.com/operatino_en).
 
 ##Possible improvements:
 
@@ -13,3 +11,5 @@ Link to recorded video with comments coming soon, stay tuned with [@operatino_en
 * Optimization and build process for production launch as a static page (sprites, css/html optimization, +1 hour)
 
 if somebody is interested, I can record dev process of listed improvements and publish it either.
+
+[@operatino_en](http://twitter.com/operatino_en)
