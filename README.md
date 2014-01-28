@@ -1,4 +1,4 @@
-Full web page HTML markup process recorder in video
+Full web page HTML markup process recorded in video
 ==============
 
 Web page source files for [Full video recorded HTML markup process](http://youtu.be/YzivmuO8Vzs). [MCSS](http://operatino.github.io/MCSS/en/), [Grunt](http://gruntjs.com/), [Less](http://lesscss.org), IE8+.
