@@ -419,7 +419,7 @@ a:hover {
   display: inline-block;
   width: 153px;
   height: 20px;
-  background-image: url(/build/assets/i/logo.png);
+  background-image: url(../i/logo.png);
   background-size: cover;
   text-indent: -9999px;
   vertical-align: top;
@@ -517,35 +517,35 @@ a:hover {
 .why_visual_img.__1 {
   width: 34px;
   height: 52px;
-  background-image: url('/build/assets/sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
+  background-image: url('../sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
   background-position: left -0px;
   background-size: 108px 298px;
 }
 .why_visual_img.__2 {
   width: 75px;
   height: 70px;
-  background-image: url('/build/assets/sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
+  background-image: url('../sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
   background-position: left -52px;
   background-size: 108px 298px;
 }
 .why_visual_img.__3 {
   width: 108px;
   height: 72px;
-  background-image: url('/build/assets/sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
+  background-image: url('../sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
   background-position: left -122px;
   background-size: 108px 298px;
 }
 .why_visual_img.__4 {
   width: 57px;
   height: 50px;
-  background-image: url('/build/assets/sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
+  background-image: url('../sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
   background-position: left -194px;
   background-size: 108px 298px;
 }
 .why_visual_img.__5 {
   width: 72px;
   height: 54px;
-  background-image: url('/build/assets/sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
+  background-image: url('../sprites/icons.55479c40b3c4ff21ea10be22bc8a686a.png');
   background-position: left -244px;
   background-size: 108px 298px;
 }
@@ -587,7 +587,7 @@ a:hover {
 }
 .steps_i.__1 {
   padding-right: 70px;
-  background-image: url(/build/assets/i/step/step_1.png);
+  background-image: url(../i/step/step_1.png);
   background-size: 138px;
 }
 .steps_i.__2 {
@@ -596,7 +596,7 @@ a:hover {
   margin-top: 25px;
   padding-left: 210px;
   padding-top: 20px;
-  background-image: url(/build/assets/i/step/step_2.png);
+  background-image: url(../i/step/step_2.png);
   background-size: 164px;
 }
 .steps_i.__2:before {
@@ -607,7 +607,7 @@ a:hover {
   width: 93px;
   height: 108px;
   margin-right: 35px;
-  background-image: url(/build/assets/i/step/step_dots.png);
+  background-image: url(../i/step/step_dots.png);
   background-size: cover;
 }
 .steps_i h2 {

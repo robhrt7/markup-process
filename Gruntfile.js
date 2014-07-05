@@ -68,8 +68,8 @@ module.exports = function(grunt) {
         smartsprites: {
             main: {
                 documentRootDirPath: './',
-                rootDirPath: 'build/assets/css',
-                outputDirPath: 'build/assets/css',
+                rootDirPath: 'build',
+                outputDirPath: 'build',
                 cssFileSuffix: '-sprited',
                 stderr: true
             }
