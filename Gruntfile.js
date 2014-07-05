@@ -98,7 +98,7 @@ module.exports = function(grunt) {
                     collapseWhitespace: true
                 },
                 files: {
-                    'build/index.html': 'index.html'
+                    'index.html': 'index.src.html'
                 }
             }
         },
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: 'assets/css/**/*.less',
-                tasks: ['newer:less'],
+                tasks: ['newer:copy:main','less:main'],
                 options: {
                     nospawn: true
                 }
