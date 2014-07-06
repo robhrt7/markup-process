@@ -1,8 +1,9 @@
-var path = require('path');
+var gulp = require('gulp');
+var plugins = require('gulp-load-plugins')();
 
 module.exports = function(grunt) {
     // Shows time spent on tasks
-    require('time-grunt')(grunt);
+//    require('time-grunt')(grunt);
 
     // Loading all grunt modules base on package.json
     require('load-grunt-tasks')(grunt);
@@ -139,12 +140,31 @@ module.exports = function(grunt) {
         },
 
         concurrent: {
-            target1: ['cssmin:main', 'cwebp:main','htmlmin:main']
+            target1: ['cssmin:main', 'newer:cwebp:main','newer:htmlmin:main']
+        },
+
+        gulp: {
+            css: {
+                options: {
+                    tasks: function (stream) {
+                        return stream.pipe(plugins.less()).pipe(plugins.cssmin());
+                    }
+                },
+                src: ['./assets/css/main.less'],
+                dest: './gulp/output.css'
+            },
+            cssNative: function () {
+                return gulp.src(['./assets/css/main.less'])
+                        .pipe(plugins.less())
+                        .pipe(plugins.cssmin())
+                        .pipe(plugins.duration('bulding css'))
+                        .pipe(gulp.dest('./gulp'));
+            }
         }
     });
 
     // Dev tasks
-    grunt.registerTask('default', ['clean-build','copy:main', 'less:main']);
+    grunt.registerTask('default', ['clean-build','newer:copy:main', 'less:main']);
     grunt.registerTask('watch-css', ['default', 'watch:css']);
 
     grunt.registerTask('serve', 'running a dev server', function(){
@@ -152,8 +172,8 @@ module.exports = function(grunt) {
     });
 
     // Production build
-    grunt.registerTask('build', ['default', 'sprite', 'cssmin:main', 'cwebp:main', 'htmlmin:main', 'webpcss:main']);
-    grunt.registerTask('build-conc', ['default', 'sprite', 'concurrent:target1', 'webpcss:main']);
+    grunt.registerTask('build', ['newer:copy:main', 'less:main', 'sprite', 'cssmin:main', 'newer:cwebp:main', 'newer:htmlmin:main', 'webpcss:main']);
+        grunt.registerTask('build-conc', ['newer:copy:main', 'less:main', 'sprite', 'concurrent:target1', 'webpcss:main']);
 
     // Misc
     grunt.registerTask('sprite', ['smartsprites:main', 'copy:sprited']);
