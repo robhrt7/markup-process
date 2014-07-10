@@ -174,12 +174,12 @@ module.exports = function(grunt) {
         pagespeed: {
             options: {
                 nokey: true,
-                url: ''
+                url: 'stub' // replaced in runtime
             },
             desktop: {
                 options: {
                     paths: ["/"],
-                    locale: "ru_RU",
+                     locale: "en_GB",
                     strategy: "desktop",
                     threshold: 80
                 }
@@ -187,9 +187,51 @@ module.exports = function(grunt) {
             mobile: {
                 options: {
                     paths: ["/"],
-                    locale: "ru_RU",
+                 locale: "en_GB",
                     strategy: "mobile",
                     threshold: 80
+                }
+            }
+        },
+
+        devperf: {
+            options: {
+                urls: ['http://localhost:8001'],
+                resultsFolder: './perf-tests/devperf/',
+                openResults:true,
+                warnings: [
+                    {
+                        // Changing the limit and the message
+                        variable: "DOMelementsCount",
+                        limit: 10,
+                        message: "DOM elements number is my big issue so i reduced the limit!"
+                    }
+                ]
+            }
+        },
+
+        phantomas: {
+            main: {
+                options: {
+                    output: 'json',
+                    indexPath: './perf-tests/phantomas/',
+                    options: {
+                        'timeout': 30
+                    },
+                    numberOfRuns: 10,
+                    url: 'http://localhost:8001',
+                    group: {
+                        'TIMINGS': [
+                            'timeToFirstByte',
+                            'timeToLastByte',
+                            'timeToFirstCss',
+                            'timeToFirstJs',
+                            'timeToFirstImage'
+                        ]
+                    },
+                    assertions: {
+                        'DOMelementsCount': 10
+                    }
                 }
             }
         }
@@ -238,6 +280,7 @@ module.exports = function(grunt) {
 
             grunt.task.run('connect:test');
 
+            // run with custom url (arg --url=http://devshelf.us), or generated
             ngrok.connect(port, function (err, url) {
                 if (err !== null) {
                     grunt.fail.fatal(err);
@@ -248,5 +291,15 @@ module.exports = function(grunt) {
                 done();
             });
         }
+    });
+
+    grunt.registerTask('perf', 'Run perf tests with devperf', function () {
+        grunt.task.run('connect:test');
+        grunt.task.run('devperf');
+    });
+
+    grunt.registerTask('perf-phantomas', 'Run perf tests with devperf', function () {
+        grunt.task.run('connect:test');
+        grunt.task.run('phantomas');
     });
 };
