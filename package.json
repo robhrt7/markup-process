@@ -26,7 +26,9 @@
     "grunt-pagespeed": "~0.3.0",
     "ngrok": "~0.1.97",
     "grunt-devperf": "~0.2.9",
-    "grunt-phantomas": "~0.8.0"
+    "grunt-phantomas": "~0.8.0",
+    "grunt-penthouse": "~0.1.1",
+    "grunt-replace": "~0.7.8"
   },
   "devDependencies": {
     "gulp": "~3.8.5",

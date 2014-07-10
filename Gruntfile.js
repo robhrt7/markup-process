@@ -63,12 +63,20 @@ module.exports = function(grunt) {
                 options: {
                     port: 8000,
                     hostname: '*',
-                    open: true
+                    open: {
+                        target: 'http://localhost:8000/index.src.html'
+                    }
                 }
             },
             test: {
                 options: {
                     port: 8001,
+                    hostname: '*'
+                }
+            },
+            process: {
+                options: {
+                    port: 8002,
                     hostname: '*'
                 }
             }
@@ -107,7 +115,7 @@ module.exports = function(grunt) {
                     collapseWhitespace: true
                 },
                 files: {
-                    'index.html': 'index.src.html'
+                    'index.html': 'index.html'
                 }
             }
         },
@@ -148,7 +156,7 @@ module.exports = function(grunt) {
         },
 
         concurrent: {
-            target1: ['cssmin:main', 'newer:cwebp:main','newer:htmlmin:main']
+            target1: ['cssmin:main', 'newer:cwebp:main','newer:replace:critical','newer:htmlmin:main']
         },
 
         // Not used, just for tests
@@ -168,6 +176,41 @@ module.exports = function(grunt) {
                         .pipe(plugins.cssmin())
                         .pipe(plugins.duration('building css'))
                         .pipe(gulp.dest('./gulp'));
+            }
+        },
+
+        penthouse: {
+            extract: {
+                outfile: 'build/assets/css/critical.css',
+                css: 'build/assets/css/main.css',
+                url: 'http://localhost:8001',
+                width: 1300,
+                height: 900
+            }
+        },
+
+        replace: {
+            critical: {
+                options: {
+                    patterns: [
+                        {
+                            match: '<!--{critical-css}-->',
+                            replacement: '<style><%= grunt.file.read("build/assets/css/critical.css") %></style>'
+                        },
+                        {
+                            match: '<link href="build/assets/css/main.css" rel="stylesheet">',
+                            replacement: ''
+                        },
+                        {
+                            match: '<!--{full-css}-->',
+                            replacement: '<link href="build/assets/css/main.css" rel="stylesheet">'
+                        }
+                    ],
+                    usePrefix: false
+                },
+                files: {
+                    'index.html': 'index.src.html'
+                }
             }
         },
 
@@ -260,12 +303,17 @@ module.exports = function(grunt) {
     });
 
     // Production build
-    grunt.registerTask('build', ['newer:copy:main', 'less:main', 'sprite', 'cssmin:main', 'newer:cwebp:main', 'newer:htmlmin:main', 'webpcss:main']);
+    grunt.registerTask('build', ['newer:copy:main', 'less:main', 'sprite', 'cssmin:main', 'newer:cwebp:main', 'newer:replace:critical', 'newer:htmlmin:main', 'webpcss:main','critical-css']);
         grunt.registerTask('build-conc', ['newer:copy:main', 'less:main', 'sprite', 'concurrent:target1', 'webpcss:main']);
 
     // Misc
     grunt.registerTask('sprite', ['smartsprites:main', 'copy:sprited']);
     grunt.registerTask('clean-build', ['clean:build']);
+
+    grunt.registerTask('critical-css', 'Generating critical CSS', function () {
+        grunt.task.run('connect:process');
+        grunt.task.run('penthouse');
+    });
 
     // Performance tests
     grunt.registerTask('page-speed', 'Run pagespeed with ngrok', function () {
