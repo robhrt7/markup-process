@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
+var ngrok = require('ngrok');
 
 module.exports = function(grunt) {
     // Shows time spent on tasks
@@ -61,6 +62,13 @@ module.exports = function(grunt) {
             main: {
                 options: {
                     port: 8000,
+                    hostname: '*',
+                    open: true
+                }
+            },
+            test: {
+                options: {
+                    port: 8001,
                     hostname: '*'
                 }
             }
@@ -161,6 +169,29 @@ module.exports = function(grunt) {
                         .pipe(plugins.duration('building css'))
                         .pipe(gulp.dest('./gulp'));
             }
+        },
+
+        pagespeed: {
+            options: {
+                nokey: true,
+                url: ''
+            },
+            desktop: {
+                options: {
+                    paths: ["/"],
+                    locale: "ru_RU",
+                    strategy: "desktop",
+                    threshold: 80
+                }
+            },
+            mobile: {
+                options: {
+                    paths: ["/"],
+                    locale: "ru_RU",
+                    strategy: "mobile",
+                    threshold: 80
+                }
+            }
         }
     });
 
@@ -172,6 +203,20 @@ module.exports = function(grunt) {
         grunt.task.run('connect:main:keepalive');
     });
 
+    grunt.registerTask('serve-web', 'Run ngork proxy', function () {
+        var port = grunt.config.get('connect.test.options.port');
+
+        grunt.task.run('connect:test:keepalive');
+
+        ngrok.connect(port, function (err, url) {
+            if (err !== null) {
+                grunt.fail.fatal(err);
+            }
+
+            console.log('Public url: ' + url);
+        });
+    });
+
     // Production build
     grunt.registerTask('build', ['newer:copy:main', 'less:main', 'sprite', 'cssmin:main', 'newer:cwebp:main', 'newer:htmlmin:main', 'webpcss:main']);
         grunt.registerTask('build-conc', ['newer:copy:main', 'less:main', 'sprite', 'concurrent:target1', 'webpcss:main']);
@@ -179,4 +224,29 @@ module.exports = function(grunt) {
     // Misc
     grunt.registerTask('sprite', ['smartsprites:main', 'copy:sprited']);
     grunt.registerTask('clean-build', ['clean:build']);
+
+    // Performance tests
+    grunt.registerTask('page-speed', 'Run pagespeed with ngrok', function () {
+        var url = grunt.option('url');
+
+        if (url) {
+            grunt.config.set('pagespeed.options.url', url);
+            grunt.task.run('pagespeed');
+        } else {
+            var done = this.async();
+            var port = grunt.config.get('connect.test.options.port');
+
+            grunt.task.run('connect:test');
+
+            ngrok.connect(port, function (err, url) {
+                if (err !== null) {
+                    grunt.fail.fatal(err);
+                    return done();
+                }
+                grunt.config.set('pagespeed.options.url', url);
+                grunt.task.run('pagespeed');
+                done();
+            });
+        }
+    });
 };

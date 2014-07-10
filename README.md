@@ -7,8 +7,9 @@ To inspect sources checkout this project, or visit [demo page](http://operatino.
 
 ##Updates
 
-* Added Gulp implementation of same tasks in Grunt
-* [Full Grunt automation process demo](https://www.youtube.com/watch?v=gs7HB9gjfCs) - Less, server and watch, sprites, WebP, CSS/HTML
+* [10.07.14] Performance testing scripts with Grunt
+* [06.07.14] Added Gulp implementation of same tasks in Grunt
+* [05.07.14] [Full Grunt automation process demo](https://www.youtube.com/watch?v=gs7HB9gjfCs) - Less, server and watch, sprites, WebP, CSS/HTML
 
 ##Possible improvements:
 
