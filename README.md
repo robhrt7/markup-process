@@ -5,10 +5,14 @@ Web page source files for [Full video recorded HTML markup process](http://youtu
 
 To inspect sources checkout this project, or visit [demo page](http://operatino.github.io/markup-process).
 
+##Updates
+
+* Added Gulp implementation of same tasks in Grunt
+* [Full Grunt automation process demo](https://www.youtube.com/watch?v=gs7HB9gjfCs) - Less, server and watch, sprites, WebP, CSS/HTML
+
 ##Possible improvements:
 
 * Responsive design for small screens (+1 hour)
-* Optimization and build process for production launch as a static page (sprites, css/html optimization, +1 hour)
 
 if somebody is interested, I can record dev process of listed improvements and publish it either.
 

@@ -143,6 +143,7 @@ module.exports = function(grunt) {
             target1: ['cssmin:main', 'newer:cwebp:main','newer:htmlmin:main']
         },
 
+        // Not used, just for tests
         gulp: {
             css: {
                 options: {
@@ -157,7 +158,7 @@ module.exports = function(grunt) {
                 return gulp.src(['./assets/css/main.less'])
                         .pipe(plugins.less())
                         .pipe(plugins.cssmin())
-                        .pipe(plugins.duration('bulding css'))
+                        .pipe(plugins.duration('building css'))
                         .pipe(gulp.dest('./gulp'));
             }
         }
