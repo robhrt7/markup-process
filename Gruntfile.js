@@ -68,6 +68,16 @@ module.exports = function(grunt) {
                     }
                 }
             },
+            smart: {
+                options: {
+                    port: 8000,
+                    base: ['./build/assets','./'], // serving from two paths, where build assets have more priority
+                    hostname: '*',
+                    open: {
+                        target: 'http://localhost:8000/index.html'
+                    }
+                }
+            },
             test: {
                 options: {
                     port: 8001,
