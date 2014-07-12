@@ -193,7 +193,7 @@ module.exports = function(grunt) {
             extract: {
                 outfile: 'build/assets/css/critical.css',
                 css: 'build/assets/css/main.css',
-                url: 'http://localhost:8001',
+                url: 'http://localhost:8002',
                 width: 1300,
                 height: 900
             }
@@ -232,7 +232,7 @@ module.exports = function(grunt) {
             desktop: {
                 options: {
                     paths: ["/"],
-                     locale: "en_GB",
+                    locale: "en_GB",
                     strategy: "desktop",
                     threshold: 80
                 }
@@ -240,7 +240,7 @@ module.exports = function(grunt) {
             mobile: {
                 options: {
                     paths: ["/"],
-                 locale: "en_GB",
+                    locale: "en_GB",
                     strategy: "mobile",
                     threshold: 80
                 }
@@ -313,7 +313,7 @@ module.exports = function(grunt) {
     });
 
     // Production build
-    grunt.registerTask('build', ['newer:copy:main', 'less:main', 'sprite', 'cssmin:main', 'newer:cwebp:main', 'newer:replace:critical', 'newer:htmlmin:main', 'webpcss:main','critical-css']);
+    grunt.registerTask('build', ['newer:copy:main', 'less:main', 'sprite', 'cssmin:main', 'newer:cwebp:main', 'webpcss:main','critical-css','newer:replace:critical', 'newer:htmlmin:main']);
         grunt.registerTask('build-conc', ['newer:copy:main', 'less:main', 'sprite', 'concurrent:target1', 'webpcss:main']);
 
     // Misc
@@ -345,7 +345,7 @@ module.exports = function(grunt) {
                     return done();
                 }
                 grunt.config.set('pagespeed.options.url', url);
-                grunt.task.run('pagespeed');
+                grunt.task.run('pagespeed:desktop');
                 done();
             });
         }
