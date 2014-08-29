@@ -60,6 +60,15 @@ gulp.task('serve', function () {
         },
         notify: false
     });
+});
+
+gulp.task('work', function () {
+    browserSync.init(null, {
+        server: {
+            baseDir: ['./']
+        },
+        notify: false
+    });
 
     gulp.start(['watch']);
 });

@@ -205,7 +205,7 @@ module.exports = function(grunt) {
                     patterns: [
                         {
                             match: '<!--{critical-css}-->',
-                            replacement: '<style><%= grunt.file.read("build/assets/css/critical.css") %></style>'
+                            replacement: '<style><% if (grunt.file.exists("build/assets/css/critical.css")) { %><%= grunt.file.read("build/assets/css/critical.css") %><% } %></style>'
                         },
                         {
                             match: '<link href="build/assets/css/main.css" rel="stylesheet">',
@@ -294,9 +294,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['clean-build','newer:copy:main', 'less:main']);
     grunt.registerTask('watch-css', ['default', 'watch:css']);
 
-    grunt.registerTask('serve', 'running a dev server', function(){
-        grunt.task.run('connect:main:keepalive');
-    });
+    grunt.registerTask('serve', ['connect:main:keepalive']);
 
     grunt.registerTask('serve-web', 'Run ngork proxy', function () {
         var port = grunt.config.get('connect.test.options.port');
