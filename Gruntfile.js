@@ -287,6 +287,20 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+
+        perfbudget: {
+            default: {
+                options: {
+                    url: 'http://devshelf.us',
+                    runs: 5,
+                    budget: {
+                        visualComplete: '5000',
+                        speedIndex: '1500'
+                    },
+                    key: process.env.WPT_API_KEY
+                }
+            }
         }
     });
 
