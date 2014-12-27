@@ -17,4 +17,4 @@ To inspect sources checkout this project, or visit [demo page](http://operatino.
 
 if somebody is interested, I can record dev process of listed improvements and publish it either.
 
-[@operatino_en](http://twitter.com/operatino_en)
+[@operatino](http://twitter.com/operatino)
